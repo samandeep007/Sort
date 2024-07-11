@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class BubbleSort{
     public static void main(String[] args) {
         int[] numbers = {3,1,5,4,2};
-        bubbleSort(numbers);
+        bubbleSort3(numbers);
         System.out.println(Arrays.toString(numbers));
     }
 
@@ -23,6 +23,33 @@ public class BubbleSort{
         }
     }
 
+    //My implementation 2
+    static void bubbleSort2(int[] arr){
+        for(int i = 0; i <= arr.length; i++){
+            int end = arr.length - 1;
+            while(end >= i) {
+                if(arr[i] > arr[end]) {
+                    int temp = arr[i];
+                    arr[i] = arr[end];
+                    arr[end] = temp;
+                }
+                end--;
+            }
+        }
+    }
 
-    
+    static void bubbleSort3(int[] arr){
+        for(int i = 0; i<arr.length - 1; i++){
+            for(int j = 0; j<arr.length - i - 1; j++){
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+
+
 }
