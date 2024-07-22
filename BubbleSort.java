@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class BubbleSort{
     public static void main(String[] args) {
         
-        int[] numbers = {3,1,5,4,2};
+        int[] numbers = {1,2,3,4,5};
         bubbleSort4(numbers);
         System.out.println(Arrays.toString(numbers));
     }
@@ -40,7 +40,7 @@ public class BubbleSort{
     }
 
     static void bubbleSort3(int[] arr){
-        for(int i = 0; i<arr.length - 1; i++){
+        for(int i = 0; i<arr.length-1; i++){
             for(int j = 0; j<arr.length - i - 1; j++){
                 if(arr[j] > arr[j+1]){
                     int temp = arr[j];
@@ -52,8 +52,10 @@ public class BubbleSort{
     }
 
     static void bubbleSort4(int[] arr) {
-        // Loop through each element except the last one
+        // Outer loop to control the number of passes
         for (int i = 0; i < arr.length - 1; i++) {
+            // Initialize the swapped flag to false
+            boolean swapped = false;
             // Inner loop for comparing elements
             for (int j = 1; j < arr.length - i; j++) {
                 // If the current element is less than the previous element, swap them
@@ -61,10 +63,17 @@ public class BubbleSort{
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
+                    // Set the swapped flag to true after a swap
+                    swapped = true;
                 }
+            }
+            // If no elements were swapped in the inner loop, the array is sorted
+            if (!swapped) {
+                break;
             }
         }
     }
+
 
 
 
