@@ -22,31 +22,6 @@ public class SelectionSort {
 //            arr[minIndex] = temp;
 //        }
 //    }
-
-    // static void selectionSort(int[] arr) {
-    //     // Outer loop to iterate over each element of the array
-    //     for (int i = 0; i < arr.length - 1; i++) {
-    //         // Assume the minimum is the current index
-    //         int minIndex = i;
-
-    //         // Inner loop to find the minimum element in the unsorted part of the array
-    //         for (int j = i + 1; j < arr.length; j++) {
-    //             if (arr[j] < arr[minIndex]) {
-    //                 // Update minIndex if a smaller element is found
-    //                 minIndex = j;
-    //             }
-    //         }
-
-    //         // Swap the found minimum element with the first element of the unsorted part
-    //         if (minIndex != i) { // Only swap if minIndex has changed
-    //             int temp = arr[i];
-    //             arr[i] = arr[minIndex];
-    //             arr[minIndex] = temp;
-    //         }
-
-    //     }
-    // }
-
     static void selectionSort(int[] arr) {
         // Outer loop to iterate over each element of the array except the last one
         for (int i = 0; i < arr.length - 1; i++) {
