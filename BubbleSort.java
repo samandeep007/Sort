@@ -4,7 +4,7 @@ public class BubbleSort{
     public static void main(String[] args) {
         
         int[] numbers = {3,1,5,4,2};
-        bubbleSort3(numbers);
+        bubbleSort4(numbers);
         System.out.println(Arrays.toString(numbers));
     }
 
@@ -51,7 +51,23 @@ public class BubbleSort{
         }
     }
 
- 
+    static void bubbleSort4(int[] arr) {
+        // Loop through each element except the last one
+        for (int i = 0; i < arr.length - 1; i++) {
+            // Inner loop for comparing elements
+            for (int j = 1; j < arr.length - i; j++) {
+                // If the current element is less than the previous element, swap them
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+            }
+        }
+    }
+
+
+
 
 
 
