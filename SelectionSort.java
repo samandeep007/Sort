@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class SelectionSort {
     public static void main(String[] args){
         int[] arr = {4,5,8,3,2,54,32,67,31,16};
-        selectionSort2(arr);
+        selectionSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -51,7 +51,7 @@ public class SelectionSort {
         // Outer loop to iterate over each element of the array except the last one
         for (int i = 0; i < arr.length - 1; i++) {
             // Assume the maximum element is at the start of the unsorted portion
-            int maxIndex = 0;
+            int maxIndex = 0 ;
 
             // Inner loop to find the maximum element in the unsorted portion
             for (int j = 1; j < arr.length - i; j++) {
@@ -60,13 +60,11 @@ public class SelectionSort {
                     maxIndex = j;
                 }
             }
-
-            // Swap the found maximum element with the element at the end of the unsorted portion
-            // Position to swap with is `arr.length - i - 1`
-
-            int temp = arr[maxIndex];
-            arr[maxIndex] = arr[arr.length - i - 1];
-            arr[arr.length - i - 1] = temp;
+          if(maxIndex != arr.length - i - 1) {
+              int temp = arr[maxIndex];
+              arr[maxIndex] = arr[arr.length - i - 1];
+              arr[arr.length - i - 1] = temp;
+          }
         }
     }
 
