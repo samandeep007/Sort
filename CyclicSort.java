@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class CyclicSort {
     public static void main(String[] args) {
-        int[] numbers = {5,2,1,4,3};
+        int[] numbers = { 5, 2, 1, 4, 3 };
         sort(numbers);
         System.out.println(Arrays.toString(numbers));
     }
@@ -24,24 +24,49 @@ public class CyclicSort {
         }
     }
 
-    //Kunal's way
-    static void sort(int[] arr){
-        int i =0;
-        while(i<arr.length){
+    // Kunal's way
+    static void sort(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
             int correctIndex = arr[i] - 1;
-            if(arr[i] != arr[correctIndex]){
+            if (arr[i] != arr[correctIndex]) {
                 swap(arr, i, correctIndex);
-            }
-            else{
+            } else {
                 i++;
             }
         }
     }
 
-    static void swap(int[] arr, int first, int second){
+    static void swap(int[] arr, int first, int second) {
         int temp = arr[second];
         arr[second] = arr[first];
         arr[first] = temp;
+    }
+
+    // Find the missing number:
+    static int missingNumber(int[] arr) {
+        int i = 0;
+
+        while (i < arr.length) {
+            // If the element is already at its correct position, or it's out of range, move
+            // to the next index
+            if (arr[i] < arr.length && arr[i] != arr[arr[i]]) {
+                int temp = arr[arr[i]];
+                arr[arr[i]] = arr[i];
+                arr[i] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        // Check for the first missing number
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] != j) {
+                return j;
+            }
+        }
+
+        return arr.length;
     }
 
 }
