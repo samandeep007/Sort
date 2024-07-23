@@ -187,6 +187,28 @@ public class CyclicSort {
         return ans;
     }
 
+    static int[] findErrorNums(int[] nums) {
+        int i = 0;
+        int[] result = new int[2];
+        while(i<nums.length){
+            int correctIndex = nums[i] - 1;
+            if(nums[i] != nums[correctIndex]){
+                swap(nums, i, correctIndex);
+            }
+            else {
+                i++;
+            }
+        }
+        for(int j = 0; j<nums.length; j++){
+            if(nums[j] != j + 1){
+                result[0] = nums[nums[j] - 1];
+                result[1] = j+1;
+            }
+        }
+        return result;
+
+    }
+
 
 
 }
