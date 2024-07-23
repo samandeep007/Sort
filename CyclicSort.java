@@ -69,4 +69,24 @@ public class CyclicSort {
         return arr.length;
     }
 
+    //Anticipated kunal's way of doing it
+    static int findMissing(int[] nums){
+        int i = 0;
+        while(i<nums.length){
+            int correctIndex = nums[nums[i]];
+            if(nums[i] > nums.length || nums[i] == nums[correctIndex]){
+                i++;
+            }
+            else{
+                swap(nums, i, correctIndex);
+            }
+        }
+        for(int j = 0; j<nums.length; j++){
+            if(j != nums[j]){
+                return j;
+            }
+        }
+        return nums.length;
+    }
+
 }
