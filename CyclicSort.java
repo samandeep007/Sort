@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CyclicSort {
     public static void main(String[] args) {
@@ -86,7 +88,33 @@ public class CyclicSort {
                 return j;
             }
         }
+
         return nums.length;
+
     }
+
+    // Find all the disappeared elements in the array
+    static List<Integer> findDisappearedNumbers(int[] arr) {
+        int i = 0;
+        List<Integer> result = new ArrayList<>();
+
+        while(i<arr.length) {
+            int correctIndex = arr[i] - 1;
+            if (arr[i] != arr[correctIndex]) {
+                swap(arr, i, correctIndex);
+            } else {
+                i++;
+            }
+        }
+        for(int j = 0; j<arr.length; j++){
+            if (arr[j] != j + 1) {
+                result.add(j + 1);
+            }
+        }
+        return result;
+
+    }
+
+
 
 }
