@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CyclicSort {
     public static void main(String[] args) {
@@ -144,6 +142,49 @@ public class CyclicSort {
         }
         // This return statement is theoretically unreachable if the input follows the problem constraints
         return -1;
+    }
+
+    //Approach 1
+    static List<Integer> findDuplicates(int[] arr) {
+        int i = 0;
+        Set<Integer> result = new HashSet<>();
+        while (i < arr.length) {
+            int correctIndex = arr[i] - 1;
+            if (arr[i] != arr[correctIndex]) {
+                swap(arr, i, correctIndex);
+            } else {
+                if (i != correctIndex) {
+                    // If we encounter the same number in its correct place, it is the duplicate
+                    result.add(arr[i]);
+                }
+                i++;
+            }
+        }
+
+
+        return new ArrayList<Integer>(result);
+    }
+
+    //Kunal's way of solving:
+    public List<Integer> findDuplicates2(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            int correct = arr[i] - 1;
+            if (arr[i] != arr[correct]) {
+                swap(arr, i , correct);
+            } else {
+                i++;
+            }
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index+1) {
+                ans.add(arr[index]);
+            }
+        }
+
+        return ans;
     }
 
 
