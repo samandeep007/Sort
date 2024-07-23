@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class CyclicSort {
     public static void main(String[] args) {
         int[] numbers = {5,2,1,4,3};
-        cyclicSort(numbers);
+        sort(numbers);
         System.out.println(Arrays.toString(numbers));
     }
 
@@ -22,6 +22,26 @@ public class CyclicSort {
                 arr[i] = temp;
             }
         }
+    }
+
+    //Kunal's way
+    static void sort(int[] arr){
+        int i =0;
+        while(i<arr.length){
+            int correctIndex = arr[i] - 1;
+            if(arr[i] != arr[correctIndex]){
+                swap(arr, i, correctIndex);
+            }
+            else{
+                i++;
+            }
+        }
+    }
+
+    static void swap(int[] arr, int first, int second){
+        int temp = arr[second];
+        arr[second] = arr[first];
+        arr[first] = temp;
     }
 
 }
