@@ -74,11 +74,11 @@ public class CyclicSort {
         int i = 0;
         while(i<nums.length){
             int correctIndex = nums[nums[i]];
-            if(nums[i] > nums.length || nums[i] == nums[correctIndex]){
-                i++;
+            if(nums[i] < nums.length && nums[i] != nums[correctIndex]){
+                swap(nums, i, correctIndex);
             }
             else{
-                swap(nums, i, correctIndex);
+               i++;
             }
         }
         for(int j = 0; j<nums.length; j++){
