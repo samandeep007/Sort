@@ -128,6 +128,24 @@ public class CyclicSort {
         }
         return arr[arr.length-1];
     }
+     static int findDuplicate2(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            int correctIndex = arr[i] - 1;
+            if (arr[i] != arr[correctIndex]) {
+                swap(arr, i, correctIndex);
+            } else {
+                if (i != correctIndex) {
+                    // If we encounter the same number in its correct place, it is the duplicate
+                    return arr[i];
+                }
+                i++;
+            }
+        }
+        // This return statement is theoretically unreachable if the input follows the problem constraints
+        return -1;
+    }
+
 
 
 }
