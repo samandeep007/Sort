@@ -73,7 +73,7 @@ public class CyclicSort {
     static int findMissing(int[] nums){
         int i = 0;
         while(i<nums.length){
-            int correctIndex = nums[nums[i]];
+            int correctIndex = nums[i];
             if(nums[i] < nums.length && nums[i] != nums[correctIndex]){
                 swap(nums, i, correctIndex);
             }
@@ -207,6 +207,26 @@ public class CyclicSort {
         }
         return result;
 
+    }
+
+    static int firstMissingPositive(int[] nums) {
+        int i = 0;
+        while(i<nums.length){
+            int correctIndex = nums[i] - 1;
+            if(nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[correctIndex]){
+                swap(nums, i, correctIndex);
+            }
+            else{
+                i++;
+            }
+        }
+        for(int j = 0; j<nums.length; j++){
+            if(j+1 != nums[j]){
+                return j+1;
+            }
+        }
+
+        return nums.length + 1;
     }
 
 
